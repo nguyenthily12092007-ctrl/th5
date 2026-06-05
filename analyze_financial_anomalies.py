@@ -112,7 +112,7 @@ def plot_analysis(df):
 def main():
     try:
         print("\n" + "=" * 50)
-        print("💰 FINANCIAL ANOMALY DETECTION SYSTEM")
+        print("💰 FINANCIAL ANOMALY DETECTION SYSTEM💰")
         print("=" * 50 + "\n")
         
         csv_path = "financial_anomaly_data.csv"

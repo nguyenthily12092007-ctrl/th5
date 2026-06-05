@@ -1,0 +1,12 @@
+
+# conda environments:
+#
+# * -> active
+# + -> frozen
+base                 *   C:\Users\pc\anaconda3
+anomaly_env              C:\Users\pc\anaconda3\envs\anomaly_env
+bt                       C:\Users\pc\anaconda3\envs\bt
+eom                      C:\Users\pc\anaconda3\envs\eom
+financial-anomaly        C:\Users\pc\anaconda3\envs\financial-anomaly
+bt                       C:\Users\pc\anaconda3\envs\bt
+

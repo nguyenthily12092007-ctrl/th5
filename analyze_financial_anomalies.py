@@ -23,7 +23,7 @@ def load_data(path):
 
 
 def preprocess(df):
-    print("⚙️  Preprocessing data...", end=" ", flush=True)
+    print("⚙️  preprocessing data...", end=" ", flush=True)
     df = df.copy()
     df["Hour"] = df["Timestamp"].dt.hour
     df["DayOfWeek"] = df["Timestamp"].dt.day_name()

@@ -14,51 +14,36 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Custom styling with purple theme
+# Custom styling with pink pastel theme
 st.markdown("""
     <style>
     .main {
-        background-color: #f3e5f5;
+        background-color: #fff0f5; /* Lavender Blush - Hồng cực nhẹ làm nền */
     }
     .metric-card {
-        background-color: #e1bee7;
+        background-color: #ffe4e1; /* Misty Rose - Hồng pastel mịn cho các ô số liệu */
         padding: 20px;
         border-radius: 10px;
-        border-left: 5px solid #9c27b0;
+        border-left: 5px solid #ffb6c1; /* Light Pink - Viền hồng dâu */
         margin: 10px 0;
+        box-shadow: 2px 2px 5px rgba(0,0,0,0.03);
     }
     .header {
-        color: #6a1b9a;
+        color: #db7093; /* Pale Violet Red - Màu tiêu đề chính nổi bật */
         text-align: center;
         font-weight: bold;
-        font-size: 28px;
+        font-size: 32px;
         margin: 20px 0;
     }
     .subheader {
-        color: #8e24aa;
+        color: #ff69b4; /* Hot Pink nhẹ - Tiêu đề phụ */
         font-weight: bold;
-        font-size: 18px;
+        font-size: 20px;
         margin-top: 15px;
-    }
-    .anomaly-high {
-        background-color: #f3e5f5;
-        border-left: 4px solid #d32f2f;
-        padding: 10px;
-        border-radius: 5px;
-        color: #d32f2f;
-        font-weight: bold;
-    }
-    .anomaly-low {
-        background-color: #f3e5f5;
-        border-left: 3px solid #388e3c;
-        padding: 10px;
-        border-radius: 5px;
-        color: #388e3c;
-        font-weight: bold;
+        margin-bottom: 10px;
     }
     </style>
 """, unsafe_allow_html=True)
-
 # Title
 st.markdown('<div class="header">💰 Hệ thống phát hiện bất thường tài chính</div>', unsafe_allow_html=True)
 

@@ -9,7 +9,7 @@ def main():
         raise FileNotFoundError(f"Streamlit app file not found: {app_file}")
 
     cmd = [sys.executable, "-m", "streamlit", "run", str(app_file)]
-    print("Starting Streamlit app...")
+    print("starting streamlit app...")
     print("Open the browser at http://localhost:8501")
     subprocess.run(cmd, check=True)
 

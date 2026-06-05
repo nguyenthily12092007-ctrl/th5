@@ -8,7 +8,7 @@ from datetime import datetime, timedelta
 
 # Set page config
 st.set_page_config(
-    page_title="💰 Hệ thống phát hiện bất thường tài chính",
+    page_title="💰 Hệ thống phát hiện bất thường tài chính💰",
     page_icon="💰",
     layout="wide",
     initial_sidebar_state="expanded"

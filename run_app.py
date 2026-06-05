@@ -10,7 +10,7 @@ def main():
 
     cmd = [sys.executable, "-m", "streamlit", "run", str(app_file)]
     print("starting streamlit app...")
-    print("Open the browser at http://localhost:8501")
+    print("open the browser at http://localhost:8501")
     subprocess.run(cmd, check=True)
 
 

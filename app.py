@@ -15,32 +15,59 @@ st.set_page_config(
 )
 
 # Custom styling with pink pastel theme
+# Thiết lập cấu hình trang và ép giao diện luôn sáng (Light theme)
+st.set_page_config(
+    page_title="💰 Hệ thống phát hiện bất thường tài chính 💰",
+    page_icon="💰",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
+
+# Thao túng toàn bộ màu nền hệ thống sang hồng pastel dịu mát
 st.markdown("""
     <style>
-    .main {
-        background-color: #fff0f5; /* Lavender Blush - Hồng cực nhẹ làm nền */
+    /* Nền của toàn bộ trang web */
+    .stApp {
+        background-color: #FFF5F5 !important; 
     }
+    
+    /* Nền của thanh Sidebar bên trái */
+    [data-testid="stSidebar"] {
+        background-color: #FFE3E3 !important;
+    }
+    
+    /* Tinh chỉnh các thẻ Metric Cards */
     .metric-card {
-        background-color: #ffe4e1; /* Misty Rose - Hồng pastel mịn cho các ô số liệu */
-        padding: 20px;
-        border-radius: 10px;
-        border-left: 5px solid #ffb6c1; /* Light Pink - Viền hồng dâu */
+        background-color: #FFFFFF; /* Thẻ nền trắng tinh khôi nổi trên nền hồng */
+        padding: 22px;
+        border-radius: 14px;
+        border-left: 6px solid #FF8E9E; /* Viền hồng dâu đậm làm điểm nhấn */
         margin: 10px 0;
-        box-shadow: 2px 2px 5px rgba(0,0,0,0.03);
+        box-shadow: 0px 4px 15px rgba(255, 142, 158, 0.15); /* Đổ bóng hồng mịn màng */
     }
+    
+    /* Màu sắc các chữ tiêu đề hiển thị */
     .header {
-        color: #db7093; /* Pale Violet Red - Màu tiêu đề chính nổi bật */
+        color: #FF6B8B; /* Hồng đậm nổi bật */
         text-align: center;
         font-weight: bold;
-        font-size: 32px;
-        margin: 20px 0;
+        font-size: 34px;
+        margin-bottom: 25px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
+    
     .subheader {
-        color: #ff69b4; /* Hot Pink nhẹ - Tiêu đề phụ */
+        color: #FF8E9E;
         font-weight: bold;
-        font-size: 20px;
-        margin-top: 15px;
-        margin-bottom: 10px;
+        font-size: 22px;
+        margin-top: 20px;
+        margin-bottom: 15px;
+    }
+    
+    /* Chỉnh màu chữ trong sidebar cho dễ nhìn trên nền hồng */
+    [data-testid="stSidebar"] .stMarkdown, [data-testid="stSidebar"] p {
+        color: #4A4A4A !important;
+        font-weight: 500;
     }
     </style>
 """, unsafe_allow_html=True)

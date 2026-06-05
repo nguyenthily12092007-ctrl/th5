@@ -50,7 +50,7 @@ st.markdown("""
     }
     .anomaly-low {
         background-color: #f3e5f5;
-        border-left: 4px solid #388e3c;
+        border-left: 3px solid #388e3c;
         padding: 10px;
         border-radius: 5px;
         color: #388e3c;

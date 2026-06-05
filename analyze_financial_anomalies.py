@@ -16,7 +16,7 @@ signal.signal(signal.SIGINT, signal_handler)
 
 
 def load_data(path):
-    print("📂 Loading data...", end=" ", flush=True)
+    print(" Loading data...", end=" ", flush=True)
     df = pd.read_csv(path, parse_dates=["Timestamp"], dayfirst=True)
     print(f"✓ Loaded {len(df)} records")
     return df

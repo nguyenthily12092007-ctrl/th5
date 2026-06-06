@@ -13,63 +13,57 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded"
 )
-
-# Custom styling with pink pastel theme
-# Thiết lập cấu hình trang và ép giao diện luôn sáng (Light theme)
-st.set_page_config(
-    page_title="💰 Hệ thống phát hiện bất thường tài chính 💰",
-    page_icon="💰",
-    layout="wide",
-    initial_sidebar_state="expanded"
-)
-
-# Thao túng toàn bộ màu nền hệ thống sang hồng pastel dịu mát
+#thiết lập màu trang web
 st.markdown("""
-    <style>
-    /* Nền của toàn bộ trang web */
-    .stApp {
-        background-color: #FFF5F5 !important; 
-    }
-    
-    /* Nền của thanh Sidebar bên trái */
-    [data-testid="stSidebar"] {
-        background-color: #FFE3E3 !important;
-    }
-    
-    /* Tinh chỉnh các thẻ Metric Cards */
-    .metric-card {
-        background-color: #FFFFFF; /* Thẻ nền trắng tinh khôi nổi trên nền hồng */
-        padding: 22px;
-        border-radius: 14px;
-        border-left: 6px solid #FF8E9E; /* Viền hồng dâu đậm làm điểm nhấn */
-        margin: 10px 0;
-        box-shadow: 0px 4px 15px rgba(255, 142, 158, 0.15); /* Đổ bóng hồng mịn màng */
-    }
-    
-    /* Màu sắc các chữ tiêu đề hiển thị */
-    .header {
-        color: #FF6B8B; /* Hồng đậm nổi bật */
-        text-align: center;
-        font-weight: bold;
-        font-size: 34px;
-        margin-bottom: 25px;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-    
-    .subheader {
-        color: #FF8E9E;
-        font-weight: bold;
-        font-size: 22px;
-        margin-top: 20px;
-        margin-bottom: 15px;
-    }
-    
-    /* Chỉnh màu chữ trong sidebar cho dễ nhìn trên nền hồng */
-    [data-testid="stSidebar"] .stMarkdown, [data-testid="stSidebar"] p {
-        color: #4A4A4A !important;
-        font-weight: 500;
-    }
-    </style>
+<style>
+
+/* Nền toàn bộ trang */
+.stApp {
+    background-color: #0F172A !important;
+}
+
+/* Sidebar */
+[data-testid="stSidebar"] {
+    background-color: #1E293B !important;
+}
+
+/* Card thống kê */
+.metric-card {
+    background-color: #1E293B;
+    padding: 22px;
+    border-radius: 14px;
+    border-left: 6px solid #38BDF8;
+    margin: 10px 0;
+    box-shadow: 0px 4px 15px rgba(56, 189, 248, 0.2);
+}
+
+/* Tiêu đề chính */
+.header {
+    color: #FFFFFF;
+    text-align: center;
+    font-weight: bold;
+    font-size: 34px;
+    margin-bottom: 25px;
+}
+
+/* Tiêu đề phụ */
+.subheader {
+    color: #38BDF8;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+/* Chữ trong sidebar */
+[data-testid="stSidebar"] * {
+    color: white !important;
+}
+
+/* Chữ thông thường */
+p, h1, h2, h3, h4, h5, h6, label, span, div {
+    color: white;
+}
+
+</style>
 """, unsafe_allow_html=True)
 # Title
 st.markdown('<div class="header">💰 Hệ thống phát hiện bất thường tài chính</div>', unsafe_allow_html=True)
@@ -251,15 +245,15 @@ col1, col2, col3, col4 = st.columns(4)
 with col1:
     st.markdown(f"""
     <div class="metric-card">
-        <h3 style="margin: 0; color: #6a1b9a;">📊 Tổng số giao dịch</h3>
-        <h2 style="margin: 5px 0; color: #6a1b9a;">{total_transactions:,}</h2>
+        <h3 style="margin: 0; color: #FFFFFF;">📊 Tổng số giao dịch</h3>
+        <h2 style="margin: 5px 0; color: #FFFFFF;">{total_transactions:,}</h2>
     </div>
     """, unsafe_allow_html=True)
 
 with col2:
     st.markdown(f"""
     <div class="metric-card">
-        <h3 style="margin: 0; color: #6a1b9a;">⚠️ Giao dịch bất thường</h3>
+        <h3 style="margin: 0; color: #FFFFFF;">⚠️ Giao dịch bất thường</h3>
         <h2 style="margin: 5px 0; color: #d32f2f;">{anomaly_transactions:,}</h2>
     </div>
     """, unsafe_allow_html=True)
@@ -268,7 +262,7 @@ with col3:
     risk_color = "#d32f2f" if anomaly_rate > 10 else "#f57c00" if anomaly_rate > 5 else "#388e3c"
     st.markdown(f"""
     <div class="metric-card">
-        <h3 style="margin: 0; color: #6a1b9a;">📊 Tỷ lệ rủi ro</h3>
+        <h3 style="margin: 0; color: #FFFFFF;">📊 Tỷ lệ rủi ro</h3>
         <h2 style="margin: 5px 0; color: {risk_color};">{anomaly_rate:.2f}%</h2>
     </div>
     """, unsafe_allow_html=True)
@@ -276,7 +270,7 @@ with col3:
 with col4:
     st.markdown(f"""
     <div class="metric-card">
-        <h3 style="margin: 0; color: #6a1b9a;">💸 Số tiền nghi ngờ</h3>
+        <h3 style="margin: 0; color: #FFFFFF;">💸 Số tiền nghi ngờ</h3>
         <h2 style="margin: 5px 0; color: #d32f2f;">${suspicious_amount:,.2f}</h2>
     </div>
     """, unsafe_allow_html=True)
@@ -294,9 +288,9 @@ with tab1:
         fig, ax = plt.subplots(figsize=(8, 5))
         colors = plt.cm.Purples(np.linspace(0.4, 0.8, len(type_counts)))
         type_counts.plot(kind="bar", ax=ax, color=colors)
-        ax.set_title("Loại giao dịch", fontsize=14, fontweight="bold", color="#6a1b9a")
-        ax.set_ylabel("Số lượng", fontsize=11, color="#6a1b9a")
-        ax.set_xlabel("Loại", fontsize=11, color="#6a1b9a")
+        ax.set_title("Loại giao dịch", fontsize=14, fontweight="bold", color="#FFFFFF")
+        ax.set_ylabel("Số lượng", fontsize=11, color="#FFFFFF")
+        ax.set_xlabel("Loại", fontsize=11, color="#FFFFFF")
         plt.xticks(rotation=45)
         plt.tight_layout()
         st.pyplot(fig)
@@ -307,8 +301,8 @@ with tab1:
         fig, ax = plt.subplots(figsize=(8, 5))
         colors = plt.cm.Purples(np.linspace(0.4, 0.8, len(location_counts)))
         location_counts.plot(kind="barh", ax=ax, color=colors)
-        ax.set_title("Top 5 địa điểm", fontsize=14, fontweight="bold", color="#6a1b9a")
-        ax.set_xlabel("Số lượng", fontsize=11, color="#6a1b9a")
+        ax.set_title("Top 5 địa điểm", fontsize=14, fontweight="bold", color="#FFFFFF")
+        ax.set_xlabel("Số lượng", fontsize=11, color="#FFFFFF")
         plt.tight_layout()
         st.pyplot(fig)
 
@@ -342,9 +336,9 @@ with tab2:
             st.markdown('<div class="subheader">Phân bố giá trị giao dịch bất thường</div>', unsafe_allow_html=True)
             fig, ax = plt.subplots(figsize=(8, 5))
             ax.hist(anomalies_df["Amount"], bins=30, color="#ce93d8", edgecolor="#8e24aa")
-            ax.set_title("Giá trị giao dịch bất thường", fontsize=14, fontweight="bold", color="#6a1b9a")
-            ax.set_xlabel("Giá trị ($)", fontsize=11, color="#6a1b9a")
-            ax.set_ylabel("Tần suất", fontsize=11, color="#6a1b9a")
+            ax.set_title("Giá trị giao dịch bất thường", fontsize=14, fontweight="bold", color="#FFFFFF")
+            ax.set_xlabel("Giá trị ($)", fontsize=11, color="#FFFFFF")
+            ax.set_ylabel("Tần suất", fontsize=11, color="#FFFFFF")
             plt.tight_layout()
             st.pyplot(fig)
         
@@ -354,7 +348,7 @@ with tab2:
             fig, ax = plt.subplots(figsize=(8, 5))
             colors = plt.cm.Purples(np.linspace(0.4, 0.8, len(anomaly_types)))
             anomaly_types.plot(kind="pie", ax=ax, autopct="%1.1f%%", colors=colors)
-            ax.set_title("Các loại bất thường", fontsize=14, fontweight="bold", color="#6a1b9a")
+            ax.set_title("Các loại bất thường", fontsize=14, fontweight="bold", color="#FFFFFF")
             ax.set_ylabel("")
             plt.tight_layout()
             st.pyplot(fig)
@@ -370,10 +364,10 @@ with tab3:
     with col1:
         st.markdown('<div class="subheader">Phân bố giá trị giao dịch (tất cả)</div>', unsafe_allow_html=True)
         fig, ax = plt.subplots(figsize=(8, 5))
-        ax.hist(df_analyzed["Amount"], bins=50, color="#b39ddb", edgecolor="#6a1b9a", alpha=0.7)
-        ax.set_title("Phân bố giá trị giao dịch", fontsize=14, fontweight="bold", color="#6a1b9a")
-        ax.set_xlabel("Giá trị ($)", fontsize=11, color="#6a1b9a")
-        ax.set_ylabel("Tần suất", fontsize=11, color="#6a1b9a")
+        ax.hist(df_analyzed["Amount"], bins=50, color="#b39ddb", edgecolor="#FFFFFF", alpha=0.7)
+        ax.set_title("Phân bố giá trị giao dịch", fontsize=14, fontweight="bold", color="#FFFFFF")
+        ax.set_xlabel("Giá trị ($)", fontsize=11, color="#FFFFFF")
+        ax.set_ylabel("Tần suất", fontsize=11, color="#FFFFFF")
         plt.tight_layout()
         st.pyplot(fig)
     
@@ -381,9 +375,9 @@ with tab3:
         st.markdown('<div class="subheader">Giá trị theo loại giao dịch</div>', unsafe_allow_html=True)
         fig, ax = plt.subplots(figsize=(8, 5))
         df_analyzed.boxplot(column="Amount", by="TransactionType", ax=ax)
-        ax.set_title("Giá trị theo loại giao dịch", fontsize=14, fontweight="bold", color="#6a1b9a")
-        ax.set_ylabel("Giá trị ($)", fontsize=11, color="#6a1b9a")
-        ax.set_xlabel("Loại giao dịch", fontsize=11, color="#6a1b9a")
+        ax.set_title("Giá trị theo loại giao dịch", fontsize=14, fontweight="bold", color="#FFFFFF")
+        ax.set_ylabel("Giá trị ($)", fontsize=11, color="#FFFFFF")
+        ax.set_xlabel("Loại giao dịch", fontsize=11, color="#FFFFFF")
         plt.suptitle("")
         plt.tight_layout()
         st.pyplot(fig)

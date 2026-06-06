@@ -6,6 +6,8 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from datetime import datetime, timedelta
 
+plt.style.use('dark_background')
+
 # Set page config
 st.set_page_config(
     page_title="💰 Hệ thống phát hiện bất thường tài chính💰",

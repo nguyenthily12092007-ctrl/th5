@@ -74,6 +74,21 @@ st.markdown('<div class="header">💰 Hệ thống phát hiện bất thường 
 st.sidebar.markdown('<div class="subheader">⚙️ Cấu hình</div>', unsafe_allow_html=True)
 st.sidebar.markdown("---")
 
+def get_explanation(row, df_all):
+    """Hàm giải thích lý do bất thường dựa trên logic nghiệp vụ"""
+    reasons = []
+    # Ví dụ: kiểm tra ngưỡng số tiền (95%)
+    if row["Amount"] > df_all["Amount"].quantile(0.95):
+        reasons.append(f"💰 Số tiền ({row['Amount']:,.2f}) nằm trong top 5% giao dịch lớn nhất.")
+    
+    # Ví dụ: kiểm tra khung giờ khuya (0h - 5h)
+    if row["Hour"] >= 0 and row["Hour"] <= 5:
+        reasons.append(f"🌙 Giao dịch thực hiện vào khung giờ khuya ({row['Hour']}:00).")
+        
+    if not reasons:
+        reasons.append("🔍 Mô hình phát hiện sự bất thường thông qua phân tích đa chiều (Isolation Forest).")
+    return reasons
+
 # Load data
 REQUIRED_COLUMNS = ["Timestamp", "TransactionID", "AccountID", "Amount", "Merchant", "TransactionType", "Location"]
 
@@ -428,17 +443,46 @@ else:
 with tab4:
     st.markdown('<div class="subheader">📋 Xem chi tiết giao dịch</div>', unsafe_allow_html=True)
     
+    # 1. Bộ lọc
     col1, col2, col3 = st.columns(3)
-    
     with col1:
         filter_type = st.selectbox("Lọc theo loại:", ["Tất cả"] + df_analyzed["TransactionType"].unique().tolist())
-    
     with col2:
         filter_merchant = st.selectbox("Lọc theo nhà cung cấp:", ["Tất cả"] + df_analyzed["Merchant"].unique().tolist())
-    
     with col3:
         filter_anomaly = st.selectbox("Hiển thị:", ["Tất cả", "Chỉ bất thường", "Chỉ bình thường"])
     
+    # Logic lọc dữ liệu
+    filtered_data = df_analyzed.copy()
+    if filter_type != "Tất cả":
+        filtered_data = filtered_data[filtered_data["TransactionType"] == filter_type]
+    if filter_merchant != "Tất cả":
+        filtered_data = filtered_data[filtered_data["Merchant"] == filter_merchant]
+    if filter_anomaly == "Chỉ bất thường":
+        filtered_data = filtered_data[filtered_data["Anomaly"] == 1]
+    elif filter_anomaly == "Chỉ bình thường":
+        filtered_data = filtered_data[filtered_data["Anomaly"] == 0]
+    
+    # 2. Hiển thị bảng kết quả
+    st.dataframe(filtered_data, use_container_width=True)
+    
+    # 3. Tính năng Giải thích (Đã tích hợp hàm thông minh)
+    st.markdown("---")
+    st.subheader("💡 Giải thích giao dịch")
+    
+    if not filtered_data.empty:
+        selected_id = st.selectbox("Chọn ID để giải thích:", filtered_data["TransactionID"].unique())
+        # Lấy dòng dữ liệu tương ứng với ID đã chọn
+        selected_row = filtered_data[filtered_data["TransactionID"] == selected_id].iloc[0]
+        
+        if st.button("Giải thích lý do bất thường"):
+            # Gọi hàm get_explanation (đảm bảo hàm này đã được định nghĩa ở trên cùng)
+            reasons = get_explanation(selected_row, df_analyzed)
+            for reason in reasons:
+                st.warning(reason)
+    else:
+        st.info("Không có dữ liệu để giải thích.")
+
     # Apply filters
     filtered_data = df_analyzed.copy()
     

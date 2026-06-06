@@ -1,0 +1,15 @@
+[33mf5a580b[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32minterface-pink-pastel[m[33m, [m[1;31morigin/interface-pink-pastel[m[33m)[m Doi giao dien va bieu do
+[33m0edce5c[m Chuyen giao dien sang mau hong pastel
+[33m220851b[m[33m ([m[1;31morigin/main[m[33m, [m[1;32mmain[m[33m)[m bai tap nhom
+[33me1e7c50[m Merge pull request #4 from nguyenthily12092007-ctrl/nguyenthily12092007-ctrl-patch-4
+[33mf279e97[m Fix typo in preprocessing print statement
+[33m686dc49[m Merge pull request #3 from nguyenthily12092007-ctrl/nguyenthily12092007-ctrl-patch-3
+[33m614703d[m Remove emoji from loading data message
+[33maf74759[m Merge pull request #2 from nguyenthily12092007-ctrl/nguyenthily12092007-ctrl-patch-2
+[33me19450e[m Fix print statement wording for consistency
+[33m8e87237[m Update run_app.py
+[33mfb3c809[m Merge pull request #1 from nguyenthily12092007-ctrl/nguyenthily12092007-ctrl-patch-1
+[33mc9b6197[m Adjust border width for low anomaly class
+[33m6e567bb[m Update app.py
+[33mfbf7b9f[m Update analyze_financial_anomalies.py
+[33m47fb5e2[m Initial commit
